@@ -20,7 +20,6 @@ import javax.sql.DataSource;
 
 @Configuration
 @MapperScan(basePackages = "com.zz.personal.dao.mapper")
-@EnableTransactionManagement
 public class MybatisConfig implements TransactionManagementConfigurer {
 
     @Autowired
@@ -29,8 +28,8 @@ public class MybatisConfig implements TransactionManagementConfigurer {
     @Bean(name = "sqlSessionFactory")
     public SqlSessionFactory sqlSessionFactoryBean() {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
-        bean.setDataSource(dataSource);
-        bean.setTypeAliasesPackage("com.zz.personal.dao");
+        bean.setDataSource(dataSource); //装配DataSource
+        bean.setTypeAliasesPackage("com.zz.personal.dao.entity"); //entity扫描
 //
 //        //分页插件
 //        PageHelper pageHelper = new PageHelper();

@@ -11,12 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
+@RequestMapping("/springgame")
 public class PhotoController {
 
     @Autowired
     private PhotoService service;
 
-    @RequestMapping("/getPhoto")
+    @RequestMapping("/detailphoto")
     public List<Photo> getPhoto(@RequestParam("id") Integer photoId){
         return service.getOnePhoto(photoId);
     }
