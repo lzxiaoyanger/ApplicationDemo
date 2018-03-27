@@ -10,6 +10,7 @@ import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomi
 //@MapperScan("com.zz.personal.dao.mapper")
 //@SpringBootApplication
 @SpringBootApplication
+//@MapperScan("com.zz.personal.dao.mapper")
 public class PersonalApplication implements EmbeddedServletContainerCustomizer {
 
 	public static void main(String[] args) {
