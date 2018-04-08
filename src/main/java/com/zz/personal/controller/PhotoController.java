@@ -4,6 +4,7 @@ package com.zz.personal.controller;
 import com.alibaba.fastjson.JSON;
 import com.zz.personal.config.ActiceMqConfig;
 import com.zz.personal.dao.entity.Photo;
+import com.zz.personal.pojo.ResultDto;
 import com.zz.personal.service.PhotoService;
 import org.apache.activemq.command.ActiveMQQueue;
 import org.slf4j.Logger;
@@ -16,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.jms.Destination;
+import javax.servlet.http.HttpServletRequest;
+import java.util.Enumeration;
 import java.util.List;
 
 @RestController
@@ -47,9 +50,12 @@ public class PhotoController {
     }
 
     @RequestMapping("/photocache")
-    public String photocache( ){
-        String user_1 = redisTemplate.opsForValue().get("users_1");
-        return user_1;
+    public ResultDto<String> photocache(@RequestParam("id") Integer id, @RequestParam("name") String name, HttpServletRequest request){
+        Enumeration<?> pNames =  request.getParameterNames();
+        ResultDto<String> resultDto = ResultDto.create();
+        return resultDto.success("zzz");
+//        String user_1 = redisTemplate.opsForValue().get("users_1");
+//        return user_1;
     }
 
 
